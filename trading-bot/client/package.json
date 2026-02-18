@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "@popperjs/core": "^2.11.8",
+    "@trpc/client": "^11.10.0",
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.10",
+    "@types/node": "^25.2.3",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.27.3",
+    "sass": "^1.97.3"
+  }
+}
