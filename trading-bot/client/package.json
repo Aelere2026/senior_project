@@ -1,4 +1,8 @@
 {
+  "name": "client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "dependencies": {
     "@popperjs/core": "^2.11.8",
     "@trpc/client": "^11.10.0",
@@ -10,5 +14,13 @@
     "concurrently": "^9.2.1",
     "esbuild": "^0.27.3",
     "sass": "^1.97.3"
-  }
+  },
+  "scripts": {
+    "build": "esbuild ./src/app.ts --bundle --sourcemap --outfile=./public/dist/bundle.js --watch",
+    "style": "sass ./src/styles/index.scss ./public/dist/bundle.css --source-map --watch",
+    "dev": "concurrently \"npm run build\" \"npm run style\""
+  },
+  "keywords": [],
+  "license": "ISC",
+  "type": "module"
 }

@@ -1,15 +1,17 @@
 {
   "name": "server",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "SPeLL Trading Bot",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "esbuild src/app.ts --outfile=dist/bundle.js --bundle --sourcemap --watch --platform=node --format=esm --external:./node_modules/*",
+    "run": "node --enable-source-maps dist/bundle.js",
+    "dev": "concurrently \"npm run build\" \"npm run run\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "dependencies": {
     "@prisma/client": "^7.4.0",
     "@trpc/server": "^11.10.0",
@@ -20,6 +22,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "@types/ws": "^8.18.1",
     "esbuild": "^0.27.3"
   }
