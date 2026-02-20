@@ -1,0 +1,31 @@
+volumes:
+  postgres:
+
+services:
+  postgres:
+    image: postgres:alpine
+    container_name: postgres
+    hostname: postgres.internal
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - postgres:/var/lib/postgresql/18/docker:delegated
+    env_file:
+      - ../secrets/postgres.env
+    environment:
+      - TZ=${TIMEZONE}
+    security_opt:
+      - no-new-privileges:true
+  adminer:
+    image: adminer:standalone
+    container_name: adminer
+    hostname: adminer.internal
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    security_opt:
+      - no-new-privileges:true

@@ -2,5 +2,9 @@ venv/
 __pycache__/
 node_modules/
 *.pyc
-.env
 dist/
+secrets/
+/trading-bot/server/prisma/generated/
+
+# Just a symlink. Safe to commit!!
+!docker/.env
